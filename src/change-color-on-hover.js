@@ -5,9 +5,9 @@ export default {
     }
   },
   init: function() {
-    var data = this.data;
-    var el = this.el;
-    var defaultColor = el.getAttribute('material').color;
+    const data = this.data;
+    const el = this.el;
+    const defaultColor = el.getAttribute('material').color;
 
     el.addEventListener('mouseenter', function() {
       el.setAttribute('color', data.color);
