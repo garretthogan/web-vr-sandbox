@@ -5,8 +5,8 @@ module.exports = {
   mode: process.env.NODE_ENV || 'development',
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: 'components.bundle.js'
+    path: path.resolve(__dirname, 'build'),
+    filename: 'app.bundle.js'
   },
   module: {
     rules: [
@@ -22,7 +22,7 @@ module.exports = {
   devServer: {
     host: process.env.HOST,
     port: process.env.PORT,
-    contentBase: path.join(__dirname, '/'),
+    contentBase: path.join(__dirname, '/build'),
     watchContentBase: true
   },
   devtool: 'source-map'
