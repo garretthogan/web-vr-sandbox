@@ -1,4 +1,5 @@
 export default {
+  name: 'change-color-on-hover',
   schema: {
     color: {
       default: 'red'
@@ -16,6 +17,5 @@ export default {
     el.addEventListener('mouseleave', function() {
       el.setAttribute('color', defaultColor);
     });
-    console.log('INIT');
   }
 };

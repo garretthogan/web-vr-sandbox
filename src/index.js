@@ -1,3 +1,3 @@
-import testComponent from './change-color-on-hover';
-console.log({ testComponent });
-window.AFRAME.registerComponent('change-color-on-hover', testComponent);
+import components from './components';
+
+components.forEach(c => window.AFRAME.registerComponent(c.name, c));
