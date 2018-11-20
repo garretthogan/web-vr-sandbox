@@ -5,9 +5,9 @@
     <title>sandbox</title>
     <meta name="description" content="sandbox" />
     <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-    <script src="/components/change-color-on-hover.js"></script>
   </head>
   <body>
+    <script src="/components.bundle.js"></script>
     <a-scene>
       <a-assets>
         <img
@@ -24,7 +24,7 @@
 
       <!-- Primitives. -->
       <a-box
-        change-color-on-hover
+        test-component
         position="-1 0.6 -3"
         rotation="0 45 0"
         color="#4CC3D9"
