@@ -12,27 +12,22 @@
       <a-assets>
         <img
           id="groundTexture"
-          src="/assets/snow-texture.jpg"
+          src="/assets/snow-floor.png"
           crossorigin="anonymous"
         />
         <img
           id="skyTexture"
-          src="/assets/mount-rainier.jpg"
+          src="https://cdn.aframe.io/a-painter/images/sky.jpg"
           crossorigin="anonymous"
         />
       </a-assets>
 
-      <!-- Background sky. -->
-      <a-sky
-        height="2048"
-        radius="30"
-        src="#skyTexture"
-        theta-length="90"
-        width="2048"
-      ></a-sky>
-
       <!-- Ground. -->
-      <a-circle src="#groundTexture" rotation="-90 0 0" radius="32"></a-circle>
+      <a-circle
+        material="src: #groundTexture; repeat: 20 20"
+        rotation="-90 0 0"
+        radius="32"
+      ></a-circle>
 
       <!-- Tracked controls. -->
 

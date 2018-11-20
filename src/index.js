@@ -1,39 +1,38 @@
 import components from './components';
 import MeshActor from './entities/mesh-actor';
+import EntityManager from './entity-manager';
+import SkyBox from './entities/sky-box';
 
 const TREE = '/assets/xmas-tree/xmas-tree.gltf';
 const SNOWMAN = '/assets/snowman/snowman.gltf';
 const CABIN = '/assets/winter-cabin/winter-cabin.gltf';
 
-const createTree = (x, y, z) => {
-  return new MeshActor({
-    position: { x, y, z },
+const christmasScene = [
+  new SkyBox({
+    src: '#skyTexture'
+  }),
+  new MeshActor({
+    position: { x: 2, y: -1, z: -3 },
     mesh: TREE
-  }).el;
-};
-
-const createSnowman = (x, y, z, rot = 0) => {
-  return new MeshActor({
-    position: { x, y, z },
-    rotation: { x: 0, y: rot, z: 0 },
+  }),
+  new MeshActor({
+    position: { x: -1, y: 2, z: -2.2 },
+    rotation: { x: 0, y: -45, z: 0 },
     mesh: SNOWMAN
-  }).el;
-};
-
-const createCabin = (x, y, z, rot = 0, scale = 1) => {
-  return new MeshActor({
-    position: { x, y, z },
-    rotation: { x: 0, y: rot, z: 0 },
-    scale: { x: scale, y: scale, z: scale },
-    mesh: CABIN
-  }).el;
-};
+  }),
+  new MeshActor({
+    position: { x: -1.7, y: 5.3, z: -7 },
+    rotation: { x: 0, y: -180, z: 0 },
+    mesh: CABIN,
+    scale: { x: 3, y: 3, z: 3 }
+  })
+];
 
 components.forEach(c => window.AFRAME.registerComponent(c.name, c));
 
 window.addEventListener('load', () => {
   const scene = document.querySelector('a-scene');
-  scene.appendChild(createTree(2, -1, -3));
-  scene.appendChild(createSnowman(-1, 2, -2.2, -45));
-  scene.appendChild(createCabin(-1, 3.6, -5, -180, 2));
+  const entityManager = new EntityManager(scene);
+
+  entityManager.register(christmasScene);
 });
